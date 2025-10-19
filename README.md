@@ -1,6 +1,6 @@
 # Bengali Digit Classifier
 
-Bengali digit recognition using deep learning. Draw a digit and watch the AI classify it with 98.5% accuracy!
+Bengali digit recognition using deep learning. Draw a digit and watch the AI classify it with 99.52% accuracy!
 
 ### 🔗 **Live Demo:** https://smafjal.github.io/NumtaDB/
 ### 🔗 **Kitchen Room:** https://github.com/smafjal/numtadb-exp
@@ -18,7 +18,7 @@ Bengali digit recognition using deep learning. Draw a digit and watch the AI cla
 ## Technology Stack
 
 - **Model:** MobileNetV2 (ONNX format, 11 MB)
-- **Accuracy:** 98.5%
+- **Accuracy:** 99.52%
 - **Framework:** ONNX Runtime Web
 - **Dataset:** NumtaDB (Bengali handwritten digits)
 - **Backend:** None - pure client-side inference!
