@@ -28,18 +28,53 @@ body {
     position: relative;
 }
 
+/* Header with Logo */
+.header-content {
+    display: flex;
+    align-items: center;
+    justify-content: flex-start;
+    gap: 1.5rem;
+    margin-bottom: 2rem;
+    flex-wrap: wrap;
+    padding-left: 1rem;
+}
+
+.logo {
+    width: 100px;
+    height: 100px;
+    object-fit: contain;
+    animation: fadeIn 0.5s ease;
+    flex-shrink: 0;
+}
+
+@keyframes fadeIn {
+    from {
+        opacity: 0;
+        transform: scale(0.9);
+    }
+    to {
+        opacity: 1;
+        transform: scale(1);
+    }
+}
+
+.header-text {
+    text-align: left;
+    flex: 1;
+}
+
 h1 {
-    text-align: center;
-    color: #333;
-    margin-bottom: 0.5rem;
-    font-size: 2.5rem;
+    color: #1a3a52;
+    margin-bottom: 0.3rem;
+    font-size: 2rem;
+    font-weight: 700;
+    line-height: 1.2;
 }
 
 .subtitle {
-    text-align: center;
     color: #666;
-    margin-bottom: 2rem;
-    font-size: 1.1rem;
+    font-size: 1rem;
+    margin: 0;
 }
 
 .canvas-container {
@@ -302,32 +337,39 @@ canvas {
     transition: all 0.3s ease;
 }
 
-/* Side Menu */
+/* Side Menu - Dropdown Style */
 .side-menu {
-    position: fixed;
-    top: 0;
-    right: -400px;
-    width: 380px;
-    max-width: 90vw;
-    height: 100vh;
+    position: absolute;
+    top: 4.5rem;
+    right: 1rem;
+    width: 400px;
+    max-width: calc(100vw - 2rem);
+    max-height: 0;
     background: white;
-    box-shadow: -4px 0 20px rgba(0, 0, 0, 0.2);
-    transition: right 0.3s ease;
+    box-shadow: 0 8px 24px rgba(0, 0, 0, 0.15);
+    border-radius: 12px;
+    transition: all 0.3s ease;
     z-index: 1001;
-    overflow-y: auto;
+    overflow: hidden;
+    opacity: 0;
+    transform: translateY(-10px);
 }
 
 .side-menu.active {
-    right: 0;
+    max-height: 600px;
+    opacity: 1;
+    transform: translateY(0);
+    overflow-y: auto;
 }
 
 .side-menu-header {
     background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
     color: white;
-    padding: 1.5rem;
+    padding: 1rem 1.5rem;
     display: flex;
     justify-content: space-between;
     align-items: center;
+    border-radius: 12px 12px 0 0;
     position: sticky;
     top: 0;
     z-index: 10;
@@ -335,17 +377,17 @@ canvas {
 
 .side-menu-header h2 {
     margin: 0;
-    font-size: 1.5rem;
+    font-size: 1.2rem;
 }
 
 .close-button {
     background: rgba(255, 255, 255, 0.2);
     border: none;
     color: white;
-    width: 35px;
-    height: 35px;
+    width: 30px;
+    height: 30px;
     border-radius: 50%;
-    font-size: 1.5rem;
+    font-size: 1.2rem;
     cursor: pointer;
     display: flex;
     align-items: center;
@@ -355,11 +397,12 @@ canvas {
 
 .close-button:hover {
     background: rgba(255, 255, 255, 0.3);
-    transform: rotate(90deg);
+    transform: scale(1.1);
 }
 
 .side-menu-content {
     padding: 1.5rem;
+    max-height: 500px;
 }
 
 .menu-section {
@@ -416,11 +459,12 @@ canvas {
     left: 0;
     width: 100%;
     height: 100%;
-    background: rgba(0, 0, 0, 0.5);
+    background: rgba(0, 0, 0, 0.3);
     opacity: 0;
     visibility: hidden;
     transition: all 0.3s ease;
     z-index: 1000;
+    backdrop-filter: blur(2px);
 }
 
 .menu-overlay.active {
@@ -434,12 +478,40 @@ canvas {
         padding: 1.5rem;
     }
 
+    .header-content {
+        flex-direction: column;
+        text-align: center;
+        padding-left: 0;
+        justify-content: center;
+    }
+
+    .header-text {
+        text-align: center;
+    }
+
+    .logo {
+        width: 80px;
+        height: 80px;
+    }
+
     h1 {
-        font-size: 2rem;
+        font-size: 1.5rem;
+    }
+    
+    .subtitle {
+        font-size: 0.9rem;
     }
 
     .controls {
         flex-direction: column;
+    }
+    
+    /* Dropdown menu on mobile */
+    .side-menu {
+        right: 0.5rem;
+        left: 0.5rem;
+        width: auto;
+        max-width: none;
     }
 
     .digit {
