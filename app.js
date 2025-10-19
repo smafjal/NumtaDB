@@ -4,6 +4,9 @@ const BENGALI_DIGITS = ['০', '১', '২', '৩', '৪', '৫', '৬', '৭', 
 // Global variables
 let session = null;
 let isDrawing = false;
+let autoClassifyTimer = null;
+let hasDrawn = false;
+let hasPrediction = false; // Track if we've shown a prediction
 
 // Canvas setup
 const canvas = document.getElementById('drawCanvas');
@@ -33,6 +36,19 @@ function clearCanvas() {
     // Hide results and errors
     resultContainer.style.display = 'none';
     errorContainer.style.display = 'none';
+    
+    // Reset auto-classify state
+    hasDrawn = false;
+    hasPrediction = false;
+    if (autoClassifyTimer) {
+        clearTimeout(autoClassifyTimer);
+        autoClassifyTimer = null;
+    }
+    
+    // Update status
+    if (session) {
+        updateStatus('Model ready! Start drawing...', 'ready');
+    }
 }
 
 // Update status
@@ -72,6 +88,11 @@ function getCoordinates(e) {
 
 // Start drawing
 function startDrawing(e) {
+    // If there's a previous prediction, auto-clear for new drawing
+    if (hasPrediction) {
+        clearCanvas();
+    }
+    
     isDrawing = true;
     const coords = getCoordinates(e);
     
@@ -102,7 +123,23 @@ function draw(e) {
 
 // Stop drawing
 function stopDrawing() {
+    if (!isDrawing) return;
+    
     isDrawing = false;
+    hasDrawn = true;
+    
+    // Clear any existing timer
+    if (autoClassifyTimer) {
+        clearTimeout(autoClassifyTimer);
+    }
+    
+    // Auto-classify after 0.5 seconds of inactivity
+    autoClassifyTimer = setTimeout(() => {
+        if (hasDrawn && session) {
+            updateStatus('Auto-predicting...', 'loading');
+            classifyDigit();
+        }
+    }, 500); // Wait 500ms (0.5 seconds) after user stops drawing
 }
 
 // Mouse events
@@ -139,9 +176,6 @@ canvas.addEventListener('touchend', (e) => {
 
 // Clear button
 clearBtn.addEventListener('click', clearCanvas);
-
-// Classify button
-classifyBtn.addEventListener('click', classifyDigit);
 
 // Preprocess image for model
 function preprocessImage() {
@@ -204,7 +238,6 @@ async function classifyDigit() {
     
     hideError();
     updateStatus('Classifying...', 'loading');
-    classifyBtn.disabled = true;
     
     try {
         // Preprocess image
@@ -227,13 +260,14 @@ async function classifyDigit() {
         // Display results
         displayResults(predictedClass, confidence, probabilities);
         
-        updateStatus('Model ready!', 'ready');
+        // Mark that we have a prediction
+        hasPrediction = true;
+        
+        updateStatus('Draw again to continue...', 'ready');
     } catch (error) {
         console.error('Prediction error:', error);
         showError(`Failed to classify digit: ${error.message}`);
-        updateStatus('Model ready!', 'ready');
-    } finally {
-        classifyBtn.disabled = false;
+        updateStatus('Model ready! Draw again...', 'ready');
     }
 }
 

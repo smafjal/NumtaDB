@@ -11,7 +11,7 @@
         window.dataLayer = window.dataLayer || [];
         function gtag(){dataLayer.push(arguments);}
         gtag('js', new Date());
-        gtag('config', 'G-G-3LMJNCN4GE');
+        gtag('config', 'G-3LMJNCN4GE');
     </script>
     
     <!-- Favicon - Logo in Browser Tab -->
@@ -64,9 +64,6 @@
                 <button id="clearBtn" class="btn btn-secondary">
                     Clear Canvas
                 </button>
-                <button id="classifyBtn" class="btn btn-primary">
-                    Classify Digit
-                </button>
             </div>
             
             <!-- Status Indicator -->
@@ -109,11 +106,15 @@
             <div class="menu-section">
                 <h3>📖 How to use</h3>
                 <ol>
-                    <li>Draw a Bengali digit (০-৯) on the white canvas using your mouse or touch</li>
-                    <li>Click "Classify Digit" to let the AI recognize your drawing</li>
-                    <li>See the prediction and confidence scores for all digits</li>
-                    <li>Click "Clear Canvas" to try another digit</li>
+                    <li>Draw a Bengali digit (০-৯) on the canvas using your mouse or touch</li>
+                    <li>Stop drawing and wait 0.5 seconds - prediction appears automatically! ⚡</li>
+                    <li>View the predicted digit with confidence scores</li>
+                    <li>Start drawing again - canvas auto-clears and you can draw the next digit</li>
+                    <li>Or click "Clear Canvas" anytime to start fresh</li>
                 </ol>
+                <div style="background: #e8f5e9; padding: 0.75rem; border-radius: 6px; margin-top: 1rem; font-size: 0.9rem; color: #2e7d32;">
+                    <strong>💡 Tip:</strong> No clicking needed! Just draw and the AI predicts automatically.
+                </div>
             </div>
             
             <!-- Reference Section -->
