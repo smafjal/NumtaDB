@@ -303,6 +303,35 @@ canvas {
     font-weight: 600;
 }
 
+/* GitHub Link */
+.github-link {
+    position: absolute;
+    top: 1.5rem;
+    right: 5.5rem;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 45px;
+    height: 45px;
+    background: linear-gradient(135deg, #24292e 0%, #1a1e22 100%);
+    color: white;
+    border-radius: 8px;
+    text-decoration: none;
+    transition: all 0.3s ease;
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.2);
+    z-index: 100;
+}
+
+.github-link:hover {
+    transform: translateY(-2px) scale(1.05);
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.3);
+}
+
+.github-link svg {
+    width: 24px;
+    height: 24px;
+}
+
 /* Menu Button (Hamburger) */
 .menu-button {
     position: absolute;
@@ -505,6 +534,27 @@ canvas {
 
     .controls {
         flex-direction: column;
+    }
+    
+    /* GitHub link on mobile */
+    .github-link {
+        top: 1rem;
+        right: 4.5rem;
+        width: 40px;
+        height: 40px;
+    }
+    
+    .github-link svg {
+        width: 20px;
+        height: 20px;
+    }
+    
+    /* Menu button on mobile */
+    .menu-button {
+        top: 1rem;
+        right: 1rem;
+        width: 40px;
+        height: 40px;
     }
     
     /* Dropdown menu on mobile */

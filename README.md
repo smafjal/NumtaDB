@@ -5,6 +5,16 @@ Bengali digit recognition using deep learning. Draw a digit and watch the AI cla
 ### 🔗 **Live Demo:** https://smafjal.github.io/NumtaDB/
 ### 🔗 **Kitchen Room:** https://github.com/smafjal/numtadb-exp
 
+**What's inside the experimental repo:**
+- 🧪 Experimented with different models (AlexNet, MobileNetV2)
+- 🔧 PyTorch model and trainer codebase for experimentation
+- 📊 Training scripts with detailed logging and metrics
+- ☁️ Google Colab setup and usage guide
+- 🔄 ONNX conversion scripts (PyTorch → ONNX)
+- 📈 Model evaluation and performance comparison
+- 📁 Data preprocessing and augmentation pipelines
+- 📝 Training documentation and best practices
+
 
 ## Features
 
