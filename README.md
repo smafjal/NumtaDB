@@ -1,6 +1,6 @@
 # Bengali Digit Classifier
 
-Bengali digit recognition using deep learning. Draw a digit and watch the AI classify it with 99.52% accuracy!
+Bengali digit recognition using deep learning. Draw a digit and watch the AI classify it automatically with 99.52% accuracy!
 
 ### 🔗 **Live Demo:** https://smafjal.github.io/NumtaDB/
 ### 🔗 **Kitchen Room:** https://github.com/smafjal/numtadb-exp
@@ -9,7 +9,9 @@ Bengali digit recognition using deep learning. Draw a digit and watch the AI cla
 ## Features
 
 ✨ **Draw Bengali digits** (০-৯) on canvas with mouse or touch  
+⚡ **Auto-prediction** - results appear in 0.5 seconds automatically  
 🤖 **Real-time AI predictions** - 50-200ms inference time  
+🔄 **Auto-clear** - canvas clears automatically when you start drawing again  
 📊 **Confidence scores** for all 10 digit classes  
 📱 **Mobile-friendly** responsive design  
 🚀 **100% client-side** - runs entirely in your browser  
@@ -25,10 +27,11 @@ Bengali digit recognition using deep learning. Draw a digit and watch the AI cla
 
 ## How It Works
 
-1. **Draw** a Bengali digit on the canvas
-2. **Click** "Classify Digit" button
-3. **Watch** AI predict with confidence scores
-4. **See** probability distribution for all digits
+1. **Draw** a Bengali digit (০-৯) on the canvas using mouse or touch
+2. **Stop drawing** and wait 0.5 seconds - AI automatically predicts! ⚡
+3. **View** the predicted digit with confidence scores
+4. **Start drawing again** - canvas auto-clears for the next digit
+5. **Repeat** - seamless continuous predictions without clicking!
 
 ## Local Development
 
