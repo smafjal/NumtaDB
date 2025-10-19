@@ -1,0 +1,20 @@
+{
+  "name": "bengali-digit-recognition-frontend",
+  "version": "1.0.0",
+  "description": "Web interface for Bengali digit recognition using ONNX Runtime",
+  "scripts": {
+    "start": "npx http-server -p 8000 -c-1",
+    "dev": "npx http-server -p 8000 -c-1 -o"
+  },
+  "keywords": [
+    "bengali",
+    "digit",
+    "recognition",
+    "onnx",
+    "machine-learning",
+    "computer-vision"
+  ],
+  "author": "",
+  "license": "MIT"
+}
+

@@ -1,0 +1,125 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Bengali Digit Classifier - AI-Powered Recognition</title>
+    
+    <!-- SEO Meta Tags -->
+    <meta name="description" content="Draw Bengali digits (০-৯) and let AI recognize them instantly. Powered by deep learning with 98.5% accuracy. Try it now!">
+    <meta name="keywords" content="Bengali digits, digit recognition, machine learning, ONNX, AI, NumtaDB">
+    <meta name="author" content="Md Afjal Hossain">
+    
+    <!-- Open Graph / Facebook -->
+    <meta property="og:type" content="website">
+    <meta property="og:title" content="Bengali Digit Classifier - AI Recognition">
+    <meta property="og:description" content="Draw Bengali digits and let AI recognize them with 98.5% accuracy!">
+    <meta property="og:url" content="https://smafjal.github.io/NumtaDB/">
+    
+    <!-- Twitter Card -->
+    <meta name="twitter:card" content="summary_large_image">
+    <meta name="twitter:title" content="Bengali Digit Classifier">
+    <meta name="twitter:description" content="AI-powered Bengali digit recognition in your browser!">
+    
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+    <div class="App">
+        <div class="container">
+            <!-- Menu Button -->
+            <button class="menu-button" id="menuButton" aria-label="Open menu">
+                <span class="hamburger-icon"></span>
+                <span class="hamburger-icon"></span>
+                <span class="hamburger-icon"></span>
+            </button>
+
+            <h1>✍️ Bengali Digit Classifier</h1>
+            <p class="subtitle">Draw a Bengali digit (০-৯) and let AI recognize it!</p>
+            
+            <div class="canvas-container">
+                <canvas id="drawCanvas"></canvas>
+            </div>
+            
+            <div class="controls">
+                <button id="clearBtn" class="btn btn-secondary">
+                    Clear Canvas
+                </button>
+                <button id="classifyBtn" class="btn btn-primary">
+                    Classify Digit
+                </button>
+            </div>
+            
+            <!-- Status Indicator -->
+            <div id="statusContainer" class="status-container">
+                <span class="status-indicator"></span>
+                <span id="statusText">Loading model...</span>
+            </div>
+            
+            <!-- Error Message -->
+            <div id="errorContainer" class="error" style="display: none;">
+                <p id="errorText"></p>
+            </div>
+            
+            <!-- Results -->
+            <div id="resultContainer" class="result" style="display: none;">
+                <h2>Result</h2>
+                <div class="prediction">
+                    <div class="digit" id="predictedDigit">০</div>
+                    <div class="confidence" id="confidenceText">Confidence: 0%</div>
+                </div>
+                
+                <div class="probabilities">
+                    <h3>All Probabilities</h3>
+                    <div class="prob-grid" id="probabilitiesGrid"></div>
+                </div>
+            </div>
+            
+        </div>
+    </div>
+
+    <!-- Side Menu -->
+    <div class="side-menu" id="sideMenu">
+        <div class="side-menu-header">
+            <h2>📚 Help & Reference</h2>
+            <button class="close-button" id="closeMenu" aria-label="Close menu">✕</button>
+        </div>
+        
+        <div class="side-menu-content">
+            <!-- Instructions Section -->
+            <div class="menu-section">
+                <h3>📖 How to use</h3>
+                <ol>
+                    <li>Draw a Bengali digit (০-৯) on the white canvas using your mouse or touch</li>
+                    <li>Click "Classify Digit" to let the AI recognize your drawing</li>
+                    <li>See the prediction and confidence scores for all digits</li>
+                    <li>Click "Clear Canvas" to try another digit</li>
+                </ol>
+            </div>
+            
+            <!-- Reference Section -->
+            <div class="menu-section">
+                <h3>🔢 Bengali Digits Reference</h3>
+                <div class="digit-reference-menu">
+                    <div class="digit-item">০ = 0</div>
+                    <div class="digit-item">১ = 1</div>
+                    <div class="digit-item">২ = 2</div>
+                    <div class="digit-item">৩ = 3</div>
+                    <div class="digit-item">৪ = 4</div>
+                    <div class="digit-item">৫ = 5</div>
+                    <div class="digit-item">৬ = 6</div>
+                    <div class="digit-item">৭ = 7</div>
+                    <div class="digit-item">৮ = 8</div>
+                    <div class="digit-item">৯ = 9</div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Overlay -->
+    <div class="menu-overlay" id="menuOverlay"></div>
+
+    <!-- ONNX Runtime -->
+    <script src="https://cdn.jsdelivr.net/npm/onnxruntime-web/dist/ort.min.js"></script>
+    <script src="app.js"></script>
+</body>
+</html>
